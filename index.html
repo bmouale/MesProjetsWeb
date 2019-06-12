@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Block</title>
+
+	<!-- =================jquery=========================== -->
+	<script src="js/jquery-3.4.1.js"></script>
+
+	<!-- =================Style=========================== -->
+	<style>
+	/*----GothaPro-----*/
+	@font-face {
+		font-family: Roboto-Bold;
+		src: local("Roboto-Bold"), url(css/Roboto/RobotoCondensed-Bold.ttf);
+	}
+	@font-face {
+		font-family: Roboto-Light;
+		src: local("Roboto-Light"), url(css/Roboto/RobotoCondensed-Light.ttf);
+	}
+	@font-face {
+		font-family: Roboto-Regular;
+		src: local("Roboto-Regular"), url(css/Roboto/RobotoCondensed-Regular.ttf); 
+	}
+
+
+	*{
+		outline: none;
+		font-family: "Roboto-Bold", sans-serif;
+		padding: 0;
+		margin: 0;
+		color: #fff;
+		position: relative;
+	}
+	body{min-width: 960px;}
+	a
+	{
+		text-decoration: none;
+	}
+	a:hover
+	{
+		color: #ff665a;
+	}
+	li{list-style: none;}
+	.container
+	{
+		max-width: 1170px;
+		margin: 0 auto;
+		padding: 0 15px;
+	}
+	.flex-row
+	{
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	.flex-space-between
+	{
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-moz-justify-content: space-between;
+		-webkit-justify-content: space-between;
+		-ms-justify-content: space-between;
+		-o-justify-content: space-between;
+		justify-content: space-between;
+	}
+
+	.flex-wrap-wrap
+	{
+		-moz-flex-wrap:wrap;
+		-webkit-flex-wrap:wrap;
+		-ms-flex-wrap:wrap;
+		-o-flex-wrap:wrap;
+		flex-wrap:wrap;
+	}
+
+
+
+
+	.flex-justify-start
+	{
+		-moz-justify-content: flex-start;
+		-webkit-justify-content: flex-start;
+		-ms-justify-content: flex-start;
+		-o-justify-content: flex-start;
+		justify-content: flex-start;
+	}
+	.flex-justify-center
+	{
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		-o-justify-content: center;
+		justify-content: center;
+	}
+	.flex-justify-end
+	{
+		-moz-justify-content: flex-end;
+		-webkit-justify-content: flex-end;
+		-ms-justify-content: flex-end;
+		-o-justify-content: flex-end;
+		justify-content: flex-end;
+	}
+
+	.flex-align-items-start
+	{
+		-moz-align-items: flex-start;
+		-webkit-align-items: flex-start;
+		-ms-align-items: flex-start;
+		-o-align-items: flex-start;
+		align-items: flex-start;
+	}
+	.flex-align-items-center
+	{
+		-moz-align-items: center;
+		-webkit-align-items: center;
+		-ms-align-items: center;
+		-o-align-items: center;
+		align-items: center;
+	}
+	.flex-align-items-end
+	{
+		-moz-align-items: flex-end;
+		-webkit-align-items: flex-end;
+		-ms-align-items: flex-end;
+		-o-align-items: flex-end;
+		align-items: flex-end;
+	}
+
+	.flex-direction-start
+	{
+		-moz-flex-direction: flex-start;
+		-webkit-flex-direction: flex-start;
+		-ms-flex-direction: flex-start;
+		-o-flex-direction: flex-start;
+		flex-direction: flex-start;
+	}
+	.flex-direction-column
+	{
+		-moz-flex-direction: column;
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
+		flex-direction: column;
+	}
+	.flex-direction-end
+	{
+		-moz-flex-direction: flex-end;
+		-webkit-flex-direction: flex-end;
+		-ms-flex-direction: flex-end;
+		-o-flex-direction: flex-end;
+		flex-direction: flex-end;
+	}
+	.header{background-color: #4362ce;}
+	.header-content{height: 90px;}
+	.header-logo>a{font-size: 25px;}
+	.header-menu>li.active>a{color: #ff665a;}
+	.header-menu>li{margin-left: 60px;}
+	.header-menu>li:first-child{margin-left: 0px;}
+	.header-menu>li>a{font-size:20px; }
+	.main{position: relative;}
+	.main-section-1{height: 525px;line-height: 525px;    background-image: linear-gradient(to top, #301e9ab0, #0720abad, #d26872, #d26872eb, #d26872);}	
+	h1{text-transform: uppercase;font-size: 50px; text-align: center;letter-spacing:3px; }
+	.main-section-2{background-color: #ddd;}
+	.main-section-2-content{}
+	.main-section-2-content-left{width: 50%;border: solid 1px #ad95ad;}
+	.main-section-2-content-right{width: 50%;border: solid 1px #ad95ad;}
+	.item{height: 332px;padding: 0 60px;}
+	.item-link{display: inline-block;width: 48px;height: 22px;background-color: #cccccc; border-radius: 15px;}
+	.item-link>span{display: inline-block;width: 22px;height: 22px;border-radius: 100%; background-color: #d66d6a;position: absolute;left: 0; top: 0;transition: all .25s linear;}
+	.item-elem{width: 280px; height: 280px;background-color: #c4c4c4;transition: all .25s linear;}
+	.item-elem.active{background-color: #7963ab;border-radius: 100%;}
+	.item-link.active{background-color: #3b67c8;}
+	.item-link.active>span{left:initial; right: 0;}
+</style>
+
+
+
+</head>
+<body>
+
+	<header class="header">
+		<div class="container">
+			<div class="header-content flex-space-between flex-align-items-center">
+				<div class="header-logo">
+					<a href="#">emmzi.com</a>
+				</div>
+				<ul class="header-menu flex-row">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="">News</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+
+
+	<main class="main">
+		<div class="main-section-1">
+			<div class="container">
+				<h1>EMMZI.COM</h1>
+			</div>	
+		</div>
+		<div class="main-section-2">
+			<div class="container">
+				<div class="main-section-2-content flex-space-between">
+					<div class="main-section-2-content-left">
+						<div class="item flex-space-between flex-align-items-center">
+							<a href="#" class="item-link"><span></span></a>
+							<div class="item-elem"></div>
+						</div>
+					</div>
+					<div class="main-section-2-content-right">
+						<div class="item flex-space-between flex-align-items-center">
+							<a href="#" class="item-link active"><span></span></a>
+							<div class="item-elem active"></div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</main>
+
+
+
+
+	<footer>
+		<div class="container">
+
+		</div>
+	</footer>
+
+	<script>
+		$(document).ready(function()
+		{
+			$('.item-link').on('click', function(){
+				$(this).toggleClass('active');
+				$(this).siblings('.item-elem').toggleClass('active');
+			});
+		});
+	</script>
+</body>
+</html>
