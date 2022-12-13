@@ -1,2 +1,2 @@
-# MesProjetsWeb_and_IA
+# ProjetsWeb_and_IA
 Projet1
